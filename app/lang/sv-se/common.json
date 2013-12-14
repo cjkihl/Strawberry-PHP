@@ -1,0 +1,23 @@
+{
+    "title" : "Titel",
+    "name"  : "Namn",        
+    "type"  : "Typ",
+    "created" : "Skapad",
+    "updated" : "Updaterad",
+    "deleted" : "Raderad",
+    "password" : "Lösenord",
+    "email" : "Email",
+    "since" : "Sedan",
+    "content" : "Innehåll",
+    "author" : "Författare",
+    "register" : "Registrera",
+    "cancel" : "Avbryt",
+    
+    "sourcecode"    : "Källkod",
+    "go_to_firstpage"   : "Gå till förstasidan",
+    
+    "404notfound_title" : "Vi kunde inte hitta det du sökte efter :/ ",
+    "404notfound_message" : "Länken till sidan du sökte är antingen borttagen eller inte tillgänglig just nu. Försök att gå tillbaka till den föregående sidan eller gå till startsidan",
+    "common_error" : "Ett fel inträffade. Försök igen senare"
+      
+}

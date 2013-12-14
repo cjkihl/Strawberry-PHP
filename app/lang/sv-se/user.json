@@ -1,0 +1,18 @@
+{
+            "access_to_usergroup" : "Tillgång till användargrupp:",
+            "not_access_to_usergroup" : "Inte tillgång till användargrupp",
+            "usergroup": "Användargrupp",
+            "locked": "Låst",
+            "log_in": "Logga in",
+            "log_out" : "Logga ut",
+            "login_success" : "Grattis! Du är nu inloggad och har tillgång till yterligare rättigheter",
+            "logout_success" : "Du har loggats ut",
+            "error_save" : "Ett fel inträffade: Det gick inte att spara användaren",
+            "error_email_exists" : "En användare med den samma email existerar redan",
+            "error_password_match" : "Lösenordsverifikationen stämmer inte överens med lösenordet",
+            
+            "login_invalid" : "Det gick inte att logga in",
+            "login_invalid_email" : "Det gick inte att logga in, fel email-adress",
+            "login_invalid_password" : "Det gick inte att logga in, fel lösenord",
+            "account_attacked" : "Ditt användarkonto har låsts av säkerhetsskäl"
+}

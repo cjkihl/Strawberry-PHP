@@ -1,0 +1,13 @@
+{
+            "new_page" : "Ny sida",
+            "alias" : "Alias",
+            "blogpost" : "Bloggpost",
+            "page" : "Sida",
+            "go_to_blog" : "Gå till bloggen",
+            "page_not_found" : "Sidan hittades inte",
+            "no_permission_edit_content" : "Du har inte rättigheter till att redigera sidor",
+            "error_publish" : "Ett fel inträffade: Det gick inte att publicera sidan",
+            "error_unpublish" : "Ett fel inträffade: Det gick inte att avpublicera sidan",
+            "error_delete" : "Ett fel inträffade: Det gick inte att ta bort sidan",
+            "error_page_exists" : "En sida med samma alias existerar redan"
+}
