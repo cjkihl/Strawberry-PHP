@@ -1,0 +1,68 @@
+{% extends theme.template %}
+{% block content %}
+<section>
+    <div class="row">
+        <div class="span4 offset3">
+            
+            {% if flash.message %}
+                <div class="alert alert-info">{{flash.message}}<button type="button" class="close" data-dismiss="alert">&times;</button></div>
+            {% endif %}
+            {% if flash.error %}
+                <div class="alert alert-danger">{{flash.error}}<button type="button" class="close" data-dismiss="alert">&times;</button></div>
+            {% endif %}  
+            
+            {% set user = logged_in_user() %}
+                                
+            {% if user %}
+                <article>
+                <h1>{{user.name}}</h1>
+                <h4>{{user.email}}</h4>
+                <p>{{'since'|i18n}}: {{user.created}}</p>
+                {% if user.permission('User') %}
+                <div class="alert alert-success">{{'access_to_usergroup'|i18n}} User</div>
+                {% else %}
+                <div class="alert alert-error">{{'not_access_to_usergroup'|i18n}} User</div>
+                {%endif %}
+                
+                {% if user.permission('Writer') %}
+                <div class="alert alert-success">{{'access_to_usergroup'|i18n}} Writer</div>
+                {% else %}
+                <div class="alert alert-error">{{'not_access_to_usergroup'|i18n}} Writer</div>
+                {%endif %}
+                
+                {% if user.permission('Admin') %}
+                <div class="alert alert-success">{{'access_to_usergroup'|i18n}} Admin</div>
+                {% else %}
+                <div class="alert alert-error">{{'not_access_to_usergroup'|i18n}} Admin</div>
+                {%endif %}
+                <a href="{{url('user/logout')}}" class="btn btn-primary">{{'log_out'|i18n}}</a>
+                </article>
+            {%else %}
+            <form class="form-horizontal" method="post" action="{{url('user/login/process')}}">
+                <div class="control-group">
+                    <label class="control-label" for="input-email">{{'email'|i18n}}</label>
+                    <div class="controls">
+                        <input type="email" name="email" id="input-email" placeholder="Email" required>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="input-password">{{'password'|i18n}}</label>
+                    <div class="controls">
+                        <input type="password" name="password" id="input-password" placeholder="{{'password'|i18n}}" required>
+                    </div>
+                </div>
+                    
+                <div class="control-group">
+                    <div class="controls">   
+                    <button type="submit" class="btn btn-primary">{{'log_in'|i18n}}</button>
+                    </div>
+                </div>
+            </form>
+            {% endif %}
+            
+        </div>
+       
+    </div>   
+</section>
+
+{% endblock %}

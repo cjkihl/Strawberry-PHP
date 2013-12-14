@@ -1,0 +1,53 @@
+{% extends theme.template %}
+{% block content %}
+<section>
+    <div class="row">
+        <div class="span11">
+            <div style="margin-left:1em;">
+            {% if flash.message %}
+                <div class="alert alert-info">{{flash.message}}<button type="button" class="close" data-dismiss="alert">&times;</button></div>
+            {% endif %}
+            {% if flash.error %}
+                <div class="alert">{{flash.error}}<button type="button" class="close" data-dismiss="alert">&times;</button></div>
+            {% endif %}  
+            </div>     
+        </div>
+    </div>
+    <div class="row">
+        <div class="span11">
+            <table  style="border: 1px solid #ccc; margin-left: 1em; width: 100%; " class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th><th>{{'alias'|i18n}}</th><th>{{'type'|i18n}}</th>
+                        <th>{{'title'|i18n}}</th><th>{{'author'|i18n}}</th>
+                        <th>{{'created'|i18n}}</th><th>{{'updated'|i18n}}</th><th>{{'deleted'|i18n}}</th>
+                        <th><a href="{{url('content/edit')}}" class="btn btn-info">{{'new_page'|i18n}} <i class="icon-star"></i></a> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for page in pages %}
+                        <tr style="height: 1em;">
+                            <td>{{page.id}}</td><td><a href="{{url('content/page/' ~ page.key)}}" >{{page.key}}</a></td><td>{{page.type}}</td>
+                        <td>{{page.title}}</td><td>{{page.author}}</td>
+                        <td>{{page.created|date('m/d - y')}}</td>
+                        <td>{{page.updated is empty ? '' : page.updated|date('m/d - y')}}</td>
+                        
+                        <td>{{page.deleted is empty ? '' : page.deleted|date('m/d - y')}}</td>
+                        <td>
+                        <a href="{{url('content/edit/' ~ page.id)}}" class="btn btn-success"><i class="icon-pencil"></i></a>    
+                        {%if page.deleted is empty%}       
+                        <a href="{{url('content/all/unpublish/' ~ page.id)}}" class="btn btn-warning"><i class="icon-ban-circle"></i></a>
+                        {%else%}
+                        <a href="{{url('content/all/publish/' ~ page.id)}}" class="btn "><i class="icon-ok-circle"></i></a>      
+                        {%endif%}        
+                        <a href="{{url('content/all/delete/' ~ page.id)}}" class="btn btn-danger"><i class="icon-trash"></i></a>
+                        </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>   
+</section>
+
+{% endblock %}

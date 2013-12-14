@@ -1,0 +1,18 @@
+{
+            "access_to_usergroup" : "Acces to the usergroup:",
+            "not_access_to_usergroup" : "Not access to the usergroup:",
+            "usergroup": "Usergroup",
+            "locked": "Locked",
+            "log_in": "Log in",
+            "log_out" : "Log out",
+            "login_success" : "Congratulations you are now logged in and is approved with new permissions!",
+            "logout_success" : "You have logged out",
+            "error_save" : "An error occurred: It was not possible to save the user",
+            "error_email_exists" : "An user with the choosen email already exists",
+            "error_password_match" : "The password verification does not match",
+            
+            "login_invalid" : "It was not possible to login",
+            "login_invalid_email" : "It was not possible to login, wrong email-address",
+            "login_invalid_password" : "It was not possible to login,, wrong password",
+            "account_attacked" : "Your account has been locked for security reasons"
+}

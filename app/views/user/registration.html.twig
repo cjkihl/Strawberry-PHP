@@ -1,0 +1,42 @@
+{% extends theme.template%}
+{% block content %}
+<section>
+    <div class="row">
+        <div class="span11">
+            {% if flash.message %}
+                <div class="alert alert-info">{{flash.message}}<button type="button" class="close" data-dismiss="alert">&times;</button></div>
+            {% endif %}
+            {% if flash.error %}
+                <div class="alert">{{flash.error}}<button type="button" class="close" data-dismiss="alert">&times;</button></div>
+            {% endif %}  
+        </div>
+    </div>
+    <div class="row">
+        <div class="span4">
+            {{form.render}}
+        </div>
+        <div class="span4">
+            <table style="border: 1px solid #ccc; margin-left: 1em;" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th><th>{{'email'|i18n}}</th><th>{{'password'|i18n}}</th>
+                        <th>{{'name'|i18n}}</th><th>Salt</th>
+                        <th>{{'usergroup'|i18n}}</th><th>{{'locked'|i18n}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                        <tr>
+                            <td>{{user.id}}</td><td>{{user.email}}</td><td><button onclick="alert('{{user.password}}')" class="btn">sha512</a></td>
+                            <td>{{user.name}}</td><td><button onclick="alert('{{user.salt}}')" class="btn">sha512</a></td>
+                        <td>{{user.groupname}}</td><td>{{user.locked}}</td>
+                        <td><a href="{{url('user/register/delete/' ~ user.id)}}" class="btn btn-warning"><i class="icon-trash"></i></a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>   
+</section>
+
+{% endblock %}

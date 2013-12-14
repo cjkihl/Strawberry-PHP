@@ -1,0 +1,22 @@
+
+#####################################################
+## Strawberry PHP - Rewrite rules for SEO-friendly urls
+## Carl-Johan Kihl 2013
+#####################################################
+
+#Turn this on if you use symbolic links
+Options +FollowSymLinks
+
+# Strawberry php uses the rewrite engine to make SEO-friendly urls
+RewriteEngine On
+
+#Turn this on if you want a specific basee appended to the rewrite rules
+#RewriteBase /~caki10/phpmvc/knom06
+
+#Rewrite conditions
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !source.php
+RewriteCond %{REQUEST_FILENAME} !install.php
+
+RewriteRule ^(.*)$ index.php [L,QSA]

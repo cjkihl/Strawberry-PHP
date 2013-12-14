@@ -1,0 +1,14 @@
+{
+            "new_page" : "New Page",
+            "alias" : "Alias",
+            "blogpost" : "Blogpost",
+            "page" : "Page",
+            "go_to_blog" : "Go to the blog",
+            "page_not_found" : "The page was not found",
+            "no_permission_edit_content" : "You doun't have permission to edit pages",
+            "error_publish" : "An error occured: it was not possible to publish the page",
+            "error_unpublish" : "An error occured it was not possible to unpublish the page",
+            "error_delete" : "An error occured it was not possible to delete the page",
+            "error_page_exists" : "A page with the same alias already exists"
+    
+}

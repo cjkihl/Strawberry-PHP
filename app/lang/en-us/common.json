@@ -1,0 +1,23 @@
+{
+    "title" : "Title",
+    "name"  : "Name",        
+    "type"  : "Type",
+    "created" : "Created",
+    "updated" : "Updated",
+    "deleted" : "Deleted",
+    "password" : "Password",
+    "email" : "Email",
+    "since" : "Since",
+    "content" : "Content",
+    "author" : "Author",
+    "register" : "Register",
+    "cancel" : "Cancel",
+    
+    "sourcecode"    : "Sourcecode",
+    "go_to_firstpage"   : "Go to the firstpage",
+    
+    "404notfound_title" : "We could not find what you are looking for :/ ",
+    "404notfound_message" : "The link to the page you searched for is broken or is not accessible right now. Try to go back to your previous page or go to the startpage",
+    "common_error" : "An error occurred. Try again later"
+      
+}

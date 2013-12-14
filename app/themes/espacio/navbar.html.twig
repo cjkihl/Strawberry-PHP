@@ -1,0 +1,75 @@
+
+{% set navbar = content('models/navbar.json') %}
+
+{% if navbar %}
+<div class="container">
+<div class="row">
+<div class="span12">
+<div class="navbar">
+    <div class="navbar-inner">
+
+        {# brand #}
+        {% if navbar.brand is defined %}
+        <a class="brand" href="{{ url(navbar.brand.url|default(''))}}">
+                {% if navbar.brand.img is defined %}
+                <img src="{{ theme.img_url ~ '/' ~ theme.params.menu_icon.value}}">
+                {%endif%}
+                 {{navbar.brand.title|default('Home')}}
+                 
+        </a>
+        {% endif %}
+
+        {# main navbar #}
+            <ul class="nav">
+            {% for name,url in navbar.top_navbar %}
+                {% set href = url(url) %}
+                    <li {{href == url() ? 'class="active"'}} >
+                        <a href="{{href}}" title="{{name}}">{{name}}</a>
+                    </li> 
+            {% endfor %}
+            </ul>
+        {% set user = logged_in_user() %}
+
+        {% if user %}
+                {# user navbar: only for logged in users #}
+                <ul class="nav pull-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle "
+                           data-toggle="dropdown">{{navbar.user_dropdown.title}} {{user.name}}<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        {% for section in navbar.user_dropdown.elements if((section.visible is not defined) or user.permission(section.visible))%}
+
+                            {% if section.divider is defined and sections.divider %}
+                                <li class="divider"></li>
+                            {% endif %}
+
+                            {% if section.title is defined %}
+                                    <li class="nav-header">{{section.title}}</li>
+                            {% endif%}
+
+                            {%for name,url in section.elements %}
+                                {% set href = url(url) %}
+                                        <li {{href == url() ? 'class="active"'}} >
+                                            <a href="{{href}}">{{name}}</a>
+                                        </li> 
+                            {% endfor %}
+                        {%endfor%}
+                        </ul>
+                    </li>
+                </ul>          
+        {% else %}
+            {# login form: visible for not logged in visitors #}
+            <form method="post" action="{{ url('user/login/process') }}" class="navbar-form pull-right">                                    
+                <input class="span2" name="email" type="email" placeholder="Email"> 
+                <input class="span2" name="password" type="password" placeholder="Password">
+                <button type="submit" class="btn btn-primary">{{navbar.top_login.title}}</button>
+            </form>
+        {%endif%}
+    </div>
+</div>
+</div>
+</div>
+</div>
+{% else %}
+<h1>Not found</h1>
+{% endif %}

@@ -1,0 +1,59 @@
+{# Testbed #}
+{% extends theme.template %}
+{% block content %}
+<section>
+
+    <div class="hero-unit header-small" id="header">
+        <h1>Strawberry <span style="color: #FAA;">PHP</span></h1>
+        <h4>Take a look under the hood...</h4>
+    </div>
+
+    <div class="row">
+        <div class="span6">
+            <article>
+                <h1> <img src="{{config.img_url}}/strawberry-icon.png">Request:</h1>
+                <h4> To the controller</h4>
+                <table class="table table-hover">
+                    <tr><td>Action</td><td>{{request.action}}</td></tr>
+                    <tr><td>Controller</td><td>{{request.controller}}</td></tr>
+                    <tr><td>Method</td><td>{{request.method}}</td></tr>
+                    <tr><td>Params</td><td>{{request.params|join('|')}}</td></tr>
+                    <tr><td>GET variables</td><td>{{request.get|join('|')}}</td></tr>
+                    <tr><td>Ajax</td><td>{{request.isAjax ? 'yes':'no'}}</td></tr>
+                    <tr><td>Language</td><td>{{request.lang}}</td></tr>
+                    <tr><td>Encoding</td><td>{{request.encoding}}</td></tr>
+                    <tr><td>Uri</td><td>{{request.uri}}</td></tr>
+                    <tr><td>Ip</td><td>{{request.ip}}</td></tr>
+                    <tr><td>HTTP User</td><td>{{request.authUser}}</td></tr>
+                    <tr><td>HTTP Password</td><td>{{request.authPassword}}</td></tr>
+                    <tr><td>User Agent</td><td>{{request.userAgent}}</td></tr>
+                    <tr><td>If modified since</td><td>{{request.ifModifiedSince}}</td></tr>
+                </table>
+            </article>
+        </div>
+        <div class="span6">
+            <article>
+                <div class="well2">
+                    <h1><img src="{{config.img_url}}/strawberry-icon.png">Response:</h1>
+                    <h4>Data from the controller to the browser</h4>
+                    <table class="table table-hover">
+			{% for key,val in response.headers %}
+                            <tr><td>{{key}}</td><td>{{val}}</td></tr>
+                        {% endfor %}
+                            <tr><td>Statuscode</td><td>{{response.status}}</td></tr>
+                            <tr><td>Force donwload:</td><td><a class="btn btn-primary pull-right" href="{{ url('test/download/my_file.txt') }}"> Download</a></td></tr>
+                            <tr><td> Response with JSON-rpc data</td><td><a class="btn btn-success pull-right" href="{{ url('test/json')  }}"> Get JSON</a></td></tr>
+                            <tr><td>Force update (clean old cache):</td><td><a class="btn btn-warning pull-right" href="{{ url('test/nochache') }}"> No Chache</a></td></tr>
+                            <tr><th>Response with different headers</th></tr>
+                        {% for key,val in response.messages %}
+                                    <tr><td>{{val}}</td>
+                                        <td><a class="btn {{ (key>199 and key<300) ? 'btn-success' : ((key>399 and key<500) ? 'btn-warning' : (key>499 ? 'btn-danger' : ''))}} pull-right" href="{{url("test/status/" ~ key)}}">{{key}}</a></td>
+                                    </tr>  
+                        {% endfor %}
+                                </table>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends theme.template %}
+{% block content %}
+<section>
+    <div class="row">
+        <div class="span11">
+            {% if flash.message %}
+                <div class="alert alert-info">{{flash.message}}<button type="button" class="close" data-dismiss="alert">&times;</button></div>
+            {% endif %}
+            {% if flash.error %}
+                <div class="alert">{{flash.error}}<button type="button" class="close" data-dismiss="alert">&times;</button></div>
+            {% endif %}  
+        </div>
+    </div>
+    <div class="row">
+        <div class="span6 offset3">
+            <h2>{{page.title}}</h2>
+            <p>{{page.updated is empty ? 'created'|i18n ~': ' ~ page.created|date('Y-m-d') : 'updated'|i18n ~': ' ~ page.updated|date('Y-m-d')}}</p>
+             
+            {{page.data|raw}}
+            <p>{{page.author}}</p>
+        </div>
+    </div>   
+</section>
+
+{% endblock %}

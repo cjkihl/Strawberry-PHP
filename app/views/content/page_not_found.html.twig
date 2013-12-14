@@ -1,0 +1,13 @@
+{% extends theme.template %}
+{% block content %}
+<section>
+    <div class="row">
+        <div class="span6 offset3">
+            <h2>{{'page_not_found'|i18n}}</h2>
+            <p><a href="{{url('content/blog')}}">{{'go_to_blog'|i18n}}</a></p>
+            <p><a href="{{url('')}}"> {{'go_to_firstpage'|i18n}}</a></p>
+        </div>
+    </div>   
+</section>
+
+{% endblock %}

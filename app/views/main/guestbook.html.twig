@@ -1,0 +1,48 @@
+{% extends theme.template %}
+{% block head %}
+<style type="text/css">
+        .blog-post {
+            background: #ccc;
+            padding: 1em;
+
+            border-radius: 1em 1em 1em 0;
+        }
+    </style>
+{% endblock %}
+
+
+{% block content %}
+    <section>
+        <div class="hero-unit header-small" id="header">
+            <h1>Strawberry <span style="color: #FAA;">PHP</span></h1>
+            <h4>Guestbook</h4>
+        </div>
+        <div class="row">
+            <div class="span6">
+                <article>
+                    <form method="post" action="{{url('guestbook/create')}}">
+                        <label for="form-text" >{{'content'|i18n}}</label>
+                        <textarea id="form-text" name="text" required=""></textarea>
+                        <span class="help-block"></span>
+                        <label>{{'author'|i18n}}</label>
+                        <input name="author" required="">
+                        <span class="help-block"></span>
+                        <button class="btn btn-primary" type="submit">Ok</button>
+                        <button class="btn" type="reset">{{'cancel'|i18n}}</button>
+                        <a class="btn btn-danger" href="{{url('guestbook/delete')}}">Clean guestbook</a>
+                    </form>
+                </article>
+            </div>
+            <div class="span6">
+                <article>
+        {# previous posts #}
+        {%for post in posts %}
+                        <p class="blog-post">{{post.text}}</p>
+                        <small># {{post.author}}</small>
+                        <hr>
+        {% endfor %}
+                    </article>
+                </div>
+            </div>
+        </section>
+{% endblock %}

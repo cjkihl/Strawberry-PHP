@@ -1,0 +1,50 @@
+{% extends theme.template %}
+{% block content %}
+<section>
+    <div class="row">
+        <div class="span11">
+            
+            <div style="margin-left:1em;">
+            {% if flash.message %}
+                <div class="alert alert-info">{{flash.message}}<button type="button" class="close" data-dismiss="alert">&times;</button></div>
+            {% endif %}
+            {% if flash.error %}
+                <div class="alert">{{flash.error}}<button type="button" class="close" data-dismiss="alert">&times;</button></div>
+            {% endif %}  
+            </div>     
+        </div>
+    </div>
+    <div class="row">
+        <div class="span11">
+            <table  style="border: 1px solid #ccc; margin-left: 1em; width: 100%; " class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th><th>{{'type'|i18n}}</th><th>{{'name'|i18n}}</th><th>{{'created'|i18n}}</th><th>Standard</th><th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% set user = logged_in_user() %}
+                    {% for theme in themes %}
+                        <tr style="height: 1em;">
+                            <td>{{theme.id}}</td><td>{{theme.key}}</td><td>{{theme.name}}</td>
+                            <td>{{theme.created|date('m/d - y')}}</td>
+                            <td>{{default_theme.id == theme.id ? 'Yes':''}}</td>
+                            <td>
+                            <a href="{{url('themes/all/select/' ~ theme.id)}}" class="btn"><i class="icon-heart"></i></a>
+                            {% if(user.permission('Admin')) %}
+                            <a href="{{url('themes/edit/' ~ theme.id)}}" class="btn btn-success"><i class="icon-pencil"></i></a>
+                            <a href="{{url('themes/all/copy/' ~ theme.id)}}" class="btn"><i class="icon-plus"></i></a>
+                            {%if not theme.locked%}
+                            <a href="{{url('themes/all/delete/' ~ theme.id)}}" class="btn btn-danger"><i class="icon-trash"></i></a>
+                            {% endif %}
+                            {% endif %}
+                            </td> 
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>   
+</section>
+
+{% endblock %}
