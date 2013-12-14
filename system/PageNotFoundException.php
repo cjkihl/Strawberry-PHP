@@ -2,6 +2,10 @@
 /**
  * Page Not found exceptions is thrown by the router if 
  * a controller or page can't be found
+ * 
+ * @package System\Exceptions
+ * @author Carl-Johan Kihl
+ * @since 2013-08-14
  */
 class PageNotFoundException extends Exception {
 	

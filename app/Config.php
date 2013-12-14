@@ -11,7 +11,7 @@
  * you need to set the the BASE_URL to 'an/extra/path'
  */
 //define('BASE_URL',substr($_SERVER['REQUEST_URI'],0, strlen($_SERVER['REQUEST_URI']) -1));
-define('BASE_URL','/bth/phpmvc/strawberry-php');
+define('BASE_URL','/bth/phpmvc/strawberry-php/Strawberry-PHP');
 //define('BASE_URL','/~caki10/phpmvc/strawberry-php');
 
 //Enable debugging

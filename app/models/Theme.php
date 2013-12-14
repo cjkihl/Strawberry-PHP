@@ -1,9 +1,14 @@
 <?php
 define('CFG_THEME', 'cfg_theme');
 /**
- * Theme-model
+ * Model for the Theme-module
+ * 
+ * This model is a part of ActiveRecord and inherits most of its functionalty
+ * from the Active Record ORM-structure
  *
- * @author Carl-Johan Kihl 2013
+ * @package Models
+ * @author Carl-Johan Kihl
+ * @since 2013-08-14
  */
 class Theme extends ActiveRecord\Model {
 

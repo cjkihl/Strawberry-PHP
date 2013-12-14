@@ -2,7 +2,9 @@
 /**
  * Themes controller: Create/Read/Update and Delete themes
  *
- * @author Carl-Johan
+ * @package Controllers
+ * @author Carl-Johan Kihl
+ * @since 2013-08-14
  */
 class Themes_controller extends Controller  {
     

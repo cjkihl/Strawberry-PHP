@@ -1,6 +1,14 @@
 <?php
 /**
- * Usergroup Model
+ * 
+ * Model for the User/Authentication-module
+ * 
+ * This model is a part of ActiveRecord and inherits most of its functionalty
+ * from the Active Record ORM-structure
+ *
+ * @package Models
+ * @author Carl-Johan Kihl
+ * @since 2013-08-14
  *
  * @author Carl-Johan
  */

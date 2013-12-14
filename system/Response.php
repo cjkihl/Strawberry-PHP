@@ -7,8 +7,9 @@
  * Has functionality and helper-methods for creating different kinds of responses
  * like ajax-rpc, force downloading etc.
  * 
- * @author Carl-Johan
- *
+ * @package System
+ * @author Carl-Johan Kihl
+ * @since 2013-08-14
  */
 class Response {
 
@@ -41,9 +42,12 @@ class Response {
 
     /**
      * Get and set status
+     * 
+     * If no parameter is given, the status will be returned.
+     *  
      * @param  int|null $status
      * @return int
-     * @return \Response method chaining
+     * @return Response method chaining
      */
     public function status($status = null) {
         if (!is_null($status)) {
@@ -59,7 +63,7 @@ class Response {
      * @param  string      $name  Header name
      * @param  string|null $value Header value
      * @return string      Header value
-     * @return \Response method chaining
+     * @return Response method chaining
      */
     public function header($name, $value = null) {
         if (!is_null($value)) {
@@ -82,9 +86,9 @@ class Response {
      * This method prepares this response to return an HTTP Redirect response
      * to the HTTP client.
      *
-     * @param string $url    The redirect destination
-     * @param int    $status The redirect HTTP status code
-     * @return \Response method chaining
+     * @param string $url The redirect destination
+     * @param int $status The redirect HTTP status code
+     * @return Response method chaining
      */
     public function redirect($url, $status = 302) {
         $this->status = $status;
@@ -95,9 +99,9 @@ class Response {
 
     /*
      * Forces browser to reload page
-     * @return \Response method chaining
+     * 
+     * @return Response method chaining
      */
-
     public function noCache() {
         $this->header('Cache-Control', 'no-cache, must-revalidate');
         $this->header('Expires', 'Sat, 26 Jul 1997 05:00:00 GMT'); // Date in the past
@@ -106,8 +110,9 @@ class Response {
 
     /**
      * Set the HTTP response Content-Type
+     * 
      * @param  string   $type   The Content-Type for the Response (ie. text/html)
-     * @return \Response method chaining
+     * @return Response method chaining
      */
     public function contentType($type) {
         $this->header['Content-Type'] = $type;
@@ -122,9 +127,9 @@ class Response {
      * client will send a conditional GET request to the server; the server
      * may return a 200 OK if the resource has changed, else a 304 Not Modified
      * if the resource has not changed. 
-     * @param string|int    $time   If string, a time to be parsed by `strtotime()`;
-     *                              If int, a UNIX timestamp;
-     * @return \Response method chaining
+     * @param string|int $time If string, a time to be parsed by `strtotime()`;
+     *                         If int, a UNIX timestamp;
+     * @return Response method chaining
      */
     public function expires($time) {
         if (is_string($time)) {
@@ -145,8 +150,8 @@ class Response {
      * and send a '304 Not Modified' response to the client.
      *
      * @param  int $time The last modified UNIX timestamp
-     * @throws \InvalidArgumentException If provided timestamp is not an integer
-     * @return \Response method chaining
+     * @throws InvalidArgumentException If provided timestamp is not an integer
+     * @return Response method chaining
      */
     public function lastModified($time) {
         if (is_integer($time)) {
@@ -155,7 +160,7 @@ class Response {
                 $this->status(304);
             }
         } else {
-            throw new \InvalidArgumentException('lastModified only accepts an integer UNIX timestamp value.');
+            throw new InvalidArgumentException('lastModified only accepts an integer UNIX timestamp value.');
         }
         
         return $this;
@@ -164,7 +169,7 @@ class Response {
     /**
      * Set headers for http server authentication
      * @param type $realm The real to authenticate
-     * @return \Response method chaining
+     * @return Response method chaining
      */
     public function authentication($realm = 'Restricted area') {
         $this->header['WWW-Authenticate'] = 'Basic realm="' . $realm . '"';
@@ -174,6 +179,7 @@ class Response {
 
     /**
      * Get message for HTTP status code
+     * 
      * @return string|null
      */
     public function getMessageForCode($status) {
@@ -186,6 +192,7 @@ class Response {
 
     /**
      * Sends the response to the browser
+     * 
      * @param string $body HTTP body
      */
     public function send() {
@@ -195,6 +202,7 @@ class Response {
 
     /**
      * Get or set http body
+     * 
      * @param type $body
      * @return \Response method chaining
      */
@@ -205,6 +213,7 @@ class Response {
     
     /**
      * Set body as a json rpc response (JSON-rpc v 2.0)
+     * 
      * @param mixed $result 
      * @param mixed $error
      * @param mixed $id must be the same as the json request id
@@ -223,6 +232,7 @@ class Response {
 
     /**
      * Sends headers to the browser
+     * 
      * @return \Response method chaining
      */
     private function sendHeaders() {
@@ -252,6 +262,7 @@ class Response {
 
     /**
      * Force download content in browser
+     * 
      * @return \Response method chaining
      */
     public function download($contentType = 'text/html', $filename = 'untitled.html', $lenght = null) {

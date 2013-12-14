@@ -2,7 +2,9 @@
 /**
  * Standard authorization for Strawberry PHP
  *
+ * @package System
  * @author Carl-Johan Kihl
+ * @since 2013-08-14 
  */
 class Authorization {
 

@@ -2,7 +2,13 @@
 /**
  * The base Controller all other controller will extend from this
  * 
+ * Each public method in the controller acts as a site accessible by the uri-string
+ * Each method can get info from the request-object and modify the response object
+ * to give the caller a given output.
  * 
+ * @package Controllers
+ * @author Carl-Johan Kihl
+ * @since 2013-08-14
  */
 class Controller {
 
@@ -22,7 +28,10 @@ class Controller {
      */
     protected $routes;
 
-    
+    /**
+     *
+     * @var string The theme-name 
+     */
     protected $theme = null;
     
     /**

@@ -1,11 +1,16 @@
 <?php
 /**
- * Handles content on the pages
+ * Model for the Content-module
+ * 
+ * This model is a part of ActiveRecord and inherits all of its functionalty
+ * from the Active Record ORM-structure
  *
- * @author Carl-Johan
+ * @package Models
+ * @author Carl-Johan Kihl
+ * @since 2013-08-14
  */
 class Content extends ActiveRecord\Model {
-    //put your code here
+   
 }
 
 ?>

@@ -5,7 +5,9 @@
  * The router parses the query-string and extracts the controller name, the medthod
  * name and optional number of extra parameters 
  *
+ * @package System
  * @author Carl-Johan Kihl
+ * @since 2013-08-14
  */
 class Router {
 

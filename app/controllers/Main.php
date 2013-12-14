@@ -5,10 +5,13 @@
  * If the router can't find a controller by the query-string it will
  * try to search the main-controller. Here you find the index-function that
  * will run if the query-string is empty
+ * 
+ * @package Controllers
+ * @author Carl-Johan Kihl
+ * @since 2013-08-14 
  */
 class Main_controller extends Controller {
 
-    
     /**
      * A simple guestbook
      * 
@@ -52,6 +55,7 @@ class Main_controller extends Controller {
     /**
      * Tests for Request and response
      * Remove if you dont want it on your public site
+     * 
      * @param string test The test to run
      */
     public function test($test = null) {

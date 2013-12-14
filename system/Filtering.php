@@ -1,8 +1,10 @@
 <?php
 /**
- * Simple class for filtering input and clean html
+ * Simple helper-class for filtering input and clean html
  *
+ * @package System
  * @author Carl-Johan Kihl
+ * @since 2013-08-14 
  */
 class Filtering {
      

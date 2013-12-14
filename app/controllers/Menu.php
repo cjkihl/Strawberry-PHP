@@ -1,13 +1,22 @@
 <?php
 /**
- * The main index controller
+ * The controller for the Menu-module
  * 
- * If the router can't find a controller by the query-string it will
- * try to search the main-controller. Here you find the index-function that
- * will run if the query-string is empty
+ * The menu-module is responsible for handling links and menues and the website
+ * and together with the Theme-module render them. The source to the menues is 
+ * stored in the models-folder in navbar.json.  
+ * 
+ * 
+ * @package Controllers
+ * @author Carl-Johan Kihl
+ * @since 2013-08-14 
  */
 class Menu_controller extends Controller {
 
+    
+    /**
+     * Saves the menu posted by the menu-editor
+     */
     public function save() {
         if(!User::authorize("Admin")) {
             $this->login();
@@ -28,6 +37,9 @@ class Menu_controller extends Controller {
         $this->response->bodyJsonRpc('Menu Saved');        
     }
  
+    /**
+     * Shows the menu and navbar editor
+     */
     public function index() {
         
         if(!User::authorize("Admin")) {
@@ -45,5 +57,4 @@ class Menu_controller extends Controller {
         
         $this->response->body($this->render('menu/editor.html.twig'));
     }
-
 }

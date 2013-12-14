@@ -1,10 +1,14 @@
 <?php
 
 /**
- * Post
+ * Model for the Guestbook in the main-module
+ * 
+ * This model is a part of ActiveRecord and inherits all of its functionalty
+ * from the Active Record ORM-structure
  *
- * @author Carl-Johan
- * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License, version 2 (GPL-2.0)
+ * @package Models
+ * @author Carl-Johan Kihl
+ * @since 2013-08-14
  */
 class Post extends ActiveRecord\Model {
 

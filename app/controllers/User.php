@@ -1,13 +1,18 @@
 <?php
 /**
+ * 
+ * Controller for the User & Authentication-module
+ * 
  * The user controller contains all functionality and pages 
  * for login logout register etc
  * 
- * @author Carl-Johan
+ * @package Controllers
+ * @author Carl-Johan Kihl
+ * @since 2013-08-14
  */
 class User_controller extends Controller {
 
-    public function __construct(\Request $request, \Response $response) {
+    public function __construct(Request $request, Response $response) {
         parent::__construct($request, $response);
         
         //Add specific dictionary for content

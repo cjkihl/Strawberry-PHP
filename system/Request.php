@@ -6,6 +6,10 @@
  * The request object has a lot of handy methods for 
  * check request method, ajax-requests, actions, variables from the
  * request string, check encodeing etc
+ * 
+ * @package System
+ * @author Carl-Johan Kihl
+ * @since 2013-08-14
  */
 class Request {
 	
@@ -17,6 +21,7 @@ class Request {
 	
         /**
          * Constructs a new request
+         * 
          * @param string $controller The controller to be called
          * @param string $action The action to be performed
          * @param array $params Extra nameless parameters from url

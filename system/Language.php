@@ -1,8 +1,17 @@
 <?php
 /*
- * Helper for Language, Internationalisation (i18n) and localisation
+ * Helper-library for Language, Internationalisation (i18n) and localisation
+ * 
+ * This file contains helper functions for i18n
+ * 
+ * @package System
+ * @author Carl-Johan Kihl
+ * @since 2013-08-14 
  */
 
+/**
+ * @var array the dictionary to be filled
+ */
 $dictionary = array();
 
 /**

@@ -2,7 +2,13 @@
 /**
  * Configurations for Strawberry MVC
  * 
+ * @package System
  * @author Carl-Johan Kihl
+ * @since 2013-08-14 
+ */
+
+/**
+ * @var array $config All global configurations is stored here
  */
 $config = array();
 

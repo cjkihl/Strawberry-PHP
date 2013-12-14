@@ -1,17 +1,33 @@
 <?php
 /**
- * Controller for handling content
+ * Controller for the Content Module
+ * 
+ * The content module can handle content as pages and blogs and
+ * show uses a convienient way of showing the content for the user in pages
+ * and blogs, and admistrating the content with CRUD-functionality
+ * 
+ * @package Controllers
+ * @author Carl-Johan Kihl
+ * @since 2013-08-14
  */
 class Content_controller extends Controller {
 
-    public function __construct(\Request $request, \Response $response) {
+    /**
+     * Creates a new Content-controller (automatically created by the Router)
+     * 
+     * @param Request $request The request
+     * @param Response $response The response to send back
+     */
+    public function __construct(Request $request, Response $response) {
         parent::__construct($request, $response);
         
         //Add specific dictionary for content
         addDictionary('content');
     }
+    
     /**
      * Shows an list with all pages
+     * 
      * Here you can create/read/update and delete pages
      */
     public function all($action=null,$id=null) {
