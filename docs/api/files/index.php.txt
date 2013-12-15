@@ -21,6 +21,12 @@ define('APP_PATH',dirname(__FILE__).'/app');
 define('THIS_URL',"http://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI']);
 
 
+//Check if installation file exists if so load it instead
+if(file_exists(dirname(__FILE__).'/install.php')) {
+    require 'install.php';
+    exit();
+}
+
 //***************************************************************************
 //                       Load and set configurations
 //***************************************************************************

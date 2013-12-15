@@ -11,12 +11,11 @@ Options +FollowSymLinks
 RewriteEngine On
 
 #Turn this on if you want a specific basee appended to the rewrite rules
-#RewriteBase /~caki10/phpmvc/knom06
+RewriteBase /~caki10/phpmvc/strawberry
 
 #Rewrite conditions
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !source.php
-RewriteCond %{REQUEST_FILENAME} !install.php
 
 RewriteRule ^(.*)$ index.php [L,QSA]

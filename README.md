@@ -29,9 +29,24 @@ authorization usergroups and web-mangement, Content- and blog- mangement and muc
 ##Installation instructions##
 
 * Download the latest release and put it on your server
-* Run the install.php script **important!** To check that the requirements off
-  file-permissions and the configurations matches your web-server.
-* Follow the instructions in the installer :)
+* Set your browser to the url where you installed the application to start the installation.
+  The installation will run some test and analyse your server to see if it-supports Strawberry PHP.
+  If will then try to set the correct file-permissions, create cache directories, check database, installed modules etc.
+* Follow the instructions in the installer carefully and you are good to go :)
+
+
+**FAQ**
+
+**Problem:** When none of the links doesn't work and I can't access any pages on my site!
+** Solution 1:**    Check your configurations in the file: **app/Config.php**. Check if the first constant: **BASE_URL**
+                    is set to you path to Strawberry-PHP on the web-server.
+** Solution 2:**    Check if you **.htaccess** file in the root-directory is correctly set. 
+                    Make sure the rewrite-engine is supported by your server, and the Rewrite-base is set correclty.
+
+**Problem** None style-sheets or images is loaded and everything looks like a mess!
+**Solution**        The links to style-sheets and images relies upon that the **BASE_URL** constant in
+                    **app/Config.php** is set correctly. Set this constant and try again See the Api-docs **docs/api** on
+                    how to set the **BASE_URL** constant correctly. 
 
 
 
