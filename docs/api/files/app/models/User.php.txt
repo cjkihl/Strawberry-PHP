@@ -1,0 +1,79 @@
+<?php
+/**
+ * Model for the User/Authentication-module
+ *
+ * This model is a part of ActiveRecord and inherits most of its functionalty
+ * from the Active Record ORM-structure
+ *
+ * @package Models
+ * @author Carl-Johan Kihl
+ * @since 2013-08-14
+ */
+class User extends ActiveRecord\Model {
+    
+    static $belongs_to = array(array('usergroup'));
+    
+    static $before_create = array('salt');
+   
+    public function groupname() {
+        return $this->usergroup->name;
+    }
+    
+    public function salt() {
+        
+         //Create a random salt
+        $this->salt = hash('sha512',uniqid(mt_rand(1, mt_getrandmax()), true));
+        
+         //Create salted and hashed password
+        $this->password = hash('sha512',$this->password.$this->salt);
+    }
+    
+    /**
+     * Login User
+     * @param string $email
+     * @param string $password
+     * @return numeric user id
+     * @throws SecurityException
+     */
+    public static function login($email,$password) {
+        $id = Authorization::getInstance()->login($email, $password);
+
+        return User::find($id);
+    }
+    
+    /**
+     * Test if this user has the permission for an usergroup
+     * @param $usergroup
+     * @return true if it success otherwise false
+     */
+    public function permission($usergroup) {
+        return $this->usergroup->permission($usergroup);
+    }
+    
+    public static function logout() {
+        return Authorization::getInstance()->logout();
+    }
+   
+   /**
+    * Authorizes the logged in user
+    * @param string $usergroup the name of the user group to authorize against (optional)
+    * @return the user if a authorized user is logged in otherwise false
+    */ 
+   public static function authorize($usergroup="") {
+       $id = Authorization::getInstance()->authorize();
+       
+       if($id===false) return false;
+       
+       $user = User::find($id);
+       if($user==null) return false;
+       
+       if(empty($usergroup)) return $user;
+       
+       if($user->permission($usergroup)) return $user;
+       return false;
+   }
+    
+}
+
+?>
+

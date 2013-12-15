@@ -22,38 +22,38 @@ function run() {
     $out .="</td></tr>";
     echo $out;
     
-    $out = '<tr><td>Set database file permissions to 660..</td><td>';
-    chmod($dir . '/database.sqlite', 0660); 
+    $out = '<tr><td>Set database file permissions to 777..</td><td>';
+    @chmod($dir . '/database.sqlite', 0777); 
     $permission = substr(decoct(fileperms($dir . '/database.sqlite')), -3);
-    if ($permission !== '660') {
-        $out .= output(OUTPUT_ERROR, "Wrong permission: $permission, should be 660");
-        $out .= "<p>Set the file: <strong>$dir/database.sqlite</strong> permissions to <strong>660</strong></p>";
+    if ($permission !== '777') {
+        $out .= output(OUTPUT_ERROR, "Wrong permission: $permission, should be 777");
+        $out .= "<p>Set the file: <strong>$dir/database.sqlite</strong> permissions to <strong>777</strong></p>";
     } else {
-        $out .= output(OUTPUT_SUCCESS, "Database has right permissions (660)");
+        $out .= output(OUTPUT_SUCCESS, "Database has right permissions (777)");
     }
     $out .="</td></tr>";
     echo $out;
     
-    $out = '<tr><td>Setting permissions on database file directory to 770..</td><td>';
-    chmod($dir, 0770); 
+    $out = '<tr><td>Setting permissions on database file directory to 777..</td><td>';
+    @chmod($dir, 0777); 
     $permission = substr(decoct(fileperms($dir)), -3);
-    if ($permission !== '770') {
-         $out .= output(OUTPUT_ERROR, "Wrong permission: $permission, should be 770");
-         $out .= "<p>Set the directory: <strong>$dir</strong> permissions to <strong>770</strong></p>";
+    if ($permission !== '777') {
+         $out .= output(OUTPUT_ERROR, "Wrong permission: $permission, should be 777");
+         $out .= "<p>Set the directory: <strong>$dir</strong> permissions to <strong>777</strong></p>";
     } else {
-        $out .= output(OUTPUT_SUCCESS, "Database directory has right permissions (770)");
+        $out .= output(OUTPUT_SUCCESS, "Database directory has right permissions (777)");
     }
     $out .="</td></tr>";
     echo $out;
     
-    $out = '<tr><td>Setting permissions on cache directory: to 770</td><td>';
-    chmod($dir . '/system/cache', 0770); 
+    $out = '<tr><td>Setting permissions on cache directory: to 777</td><td>';
+    @chmod($dir . '/system/cache', 0777); 
     $permission = substr(decoct(fileperms($dir.'/system/cache')), -3);
-    if ($permission !== '770') {
-         $out .= output(OUTPUT_ERROR, "Wrong permission: $permission, should be 770");
-         $out .= "<p>Set the directory: <strong>$dir/system/cache</strong> permissions to <strong>770</strong></p>";
+    if ($permission !== '777') {
+         $out .= output(OUTPUT_ERROR, "Wrong permission: $permission, should be 777");
+         $out .= "<p>Set the directory: <strong>$dir/system/cache</strong> permissions to <strong>777</strong></p>";
     } else {
-        $out .= output(OUTPUT_SUCCESS, "System cache directory has right permissions (770)");
+        $out .= output(OUTPUT_SUCCESS, "System cache directory has right permissions (777)");
     }
     $out .="</td></tr>";
     echo $out;

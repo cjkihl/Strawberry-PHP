@@ -13,7 +13,7 @@ make AJAX-rpc requests, force downloads, read HTTP-headers and use HTTP-Authoriz
 **Strawberry PHP** also comes bundled with a lot of modules for creating forms, 
 authorization usergroups and web-mangement, Content- and blog- mangement and much more!
 
-<h2>Features:</h2>
+##Features:##
 
 * Dynamic HTTP-Routing och SEO (Sökmotor-optimering)
 * Expandlable MVC structure
@@ -25,3 +25,13 @@ authorization usergroups and web-mangement, Content- and blog- mangement and muc
 * Theme-rendering module for styling and making custom templates easier
 * Content-module for create/read/update and delete content and blogs to you application
 * And much more!
+
+##Installation instructions##
+
+* Download the latest release and put it on your server
+* Run the install.php script **important!** To check that the requirements off
+  file-permissions and the configurations matches your web-server.
+* Follow the instructions in the installer :)
+
+
+
