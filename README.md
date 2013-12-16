@@ -95,3 +95,6 @@ authorization usergroups and web-mangement, Content- and blog- mangement and muc
 ##Create you own Model-View-Controller Module##
 1. In the Main module _app/Controllers/Main.php_ There is a controller called _Guestbook_. It's an example controller that shows you how easy it is to extend the framework with you own modules. It has it's own model _app/models/Post.php_. And a view _app/views/main/guestbook.html.twig_ You can access the controller through _www.yoursite.com/guestbook_. Examine how the controller is build and learn the structure of Strawberry-PHP modules! Also Check the api-manual: _docs/api_ for more information.
 
+You can also check the developers manual:
+https://github.com/caki0915/Strawberry-PHP/wiki/Developers-Manual
+
