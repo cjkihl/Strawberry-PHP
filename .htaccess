@@ -10,8 +10,8 @@ Options +FollowSymLinks
 # Strawberry php uses the rewrite engine to make SEO-friendly urls
 RewriteEngine On
 
-#Turn this on if you want a specific basee appended to the rewrite rules
-RewriteBase /~caki10/phpmvc/strawberry
+#Turn this on if you want a specific base appended to the rewrite rules
+#RewriteBase /path/to/your/site
 
 #Rewrite conditions
 RewriteCond %{REQUEST_FILENAME} !-f

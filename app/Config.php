@@ -10,7 +10,7 @@
  *  For example: the url to your index.php file is http://www.yoursite.com/an/extra/path/index.php
  * you need to set the the BASE_URL to 'an/extra/path'
  */
-define('BASE_URL','/~caki10/phpmvc/strawberry-php');
+define('BASE_URL','');
 
 //Enable debugging
 $config['debug'] = true;

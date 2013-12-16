@@ -1,4 +1,8 @@
 <?php
+//*****************************************************************************
+//                    Installation of Strawberry PHP
+//*****************************************************************************
+
 define('OUTPUT_ERROR', 1);
 define('OUTPUT_MESSAGE',0);
 define('OUTPUT_SUCCESS',2);
@@ -100,6 +104,20 @@ function run() {
          $out .= "<p>Set the directory: <strong>$dir/system/cache</strong> and all children-directories permissions to <strong>777</strong></p>";
     } else {
         $out .= output(OUTPUT_SUCCESS, "System cache directory has right permissions (777)");
+    }
+    $out .="</td></tr>";
+    echo $out;
+    
+    $out = '<tr><td>Set /app/models/navbar.json file permissions to 777..</td><td>';
+    
+    //Try to set permission automatically
+    @chmod($dir . '/app/models/navbar.json', 0777); 
+    $permission = substr(decoct(fileperms($dir . '/app/models/navbar.json')), -3);
+    if ($permission !== '777') {
+        $out .= output(OUTPUT_ERROR, "Wrong permission: $permission, should be 777");
+        $out .= "<p>Set the file: <strong>$dir/app/models/navbar.json</strong> permissions to <strong>777</strong></p>";
+    } else {
+        $out .= output(OUTPUT_SUCCESS, "Database has right permissions (777)");
     }
     $out .="</td></tr>";
     echo $out;
