@@ -117,7 +117,7 @@ function run() {
         $out .= output(OUTPUT_ERROR, "Wrong permission: $permission, should be 777");
         $out .= "<p>Set the file: <strong>$dir/app/models/navbar.json</strong> permissions to <strong>777</strong></p>";
     } else {
-        $out .= output(OUTPUT_SUCCESS, "Database has right permissions (777)");
+        $out .= output(OUTPUT_SUCCESS, "File has right permissions (777)");
     }
     $out .="</td></tr>";
     echo $out;
@@ -195,7 +195,7 @@ function output($status,$message) {
     }
 }
 
-if($_POST['delete-installer']) {
+if(isset($_POST['delete-installer'])) {
     @unlink(dirname(__FILE__).'/install.php');
     header( 'Location: '.$_SERVER['PHP_SELF'] );
     exit();

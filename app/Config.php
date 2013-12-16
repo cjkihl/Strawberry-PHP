@@ -8,7 +8,7 @@
  * BASE_URL: If your site is on another place that you root you need to set the
  * this constant to the location of your site.
  *  For example: the url to your index.php file is http://www.yoursite.com/an/extra/path/index.php
- * you need to set the the BASE_URL to 'an/extra/path'
+ * you need to set the the BASE_URL to '/an/extra/path' (with no trailing backslash)
  */
 define('BASE_URL','');
 
